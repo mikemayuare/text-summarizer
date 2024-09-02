@@ -1,6 +1,8 @@
 import os
+from pathlib import Path
 from textSummarizer.logging import logger
 from textSummarizer.entity import DataValidationConfig
+
 
 class DataValidation:
     def __init__(self, config: DataValidationConfig):
@@ -8,9 +10,7 @@ class DataValidation:
 
     def validate_all_files_exist(self) -> bool:
         try:
-            all_files = os.listdir(
-                os.path.join("artifacts", "data_ingestion", "samsum_dataset")
-            )
+            all_files = os.listdir(Path("artifacts/data_ingestion/samsum_dataset"))
 
             for file in all_files:
                 if file not in self.config.ALL_REQUIRED_FILES:
