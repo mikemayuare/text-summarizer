@@ -11,3 +11,6 @@ class ModelEvaluationPipeline:
         model_evaluation_config = config.get_model_evaluation_config()
         model_evaluation_config = ModelEvaluation(config=model_evaluation_config)
         model_evaluation_config.evaluate()
+
+model_evaluator = ModelEvaluationPipeline()
+model_evaluator.main()

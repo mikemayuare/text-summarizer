@@ -12,3 +12,5 @@ class DataTransformationTrainingPipeline:
         data_transformation = DataTransformation(config=data_transformation_config)
         data_transformation.convert()
 
+data_transformer = DataTransformationTrainingPipeline()
+data_transformer.main()

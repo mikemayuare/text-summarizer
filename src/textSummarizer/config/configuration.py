@@ -5,7 +5,7 @@ from textSummarizer.entity import (
     DataValidationConfig,
     DataTransformationConfig,
     ModelTrainerConfig,
-    ModelEvaluationConfig,
+    ModelEvaluationConfig, 
 )
 
 
