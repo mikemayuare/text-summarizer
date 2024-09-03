@@ -16,6 +16,7 @@ from textSummarizer.pipeline.stage_05_model_evaluation import (
 
 from textSummarizer.logging import logger
 
+
 stage_name = "Data Ingestion Stage"
 try:
     logger.info(f">>>>>> stage {stage_name} started <<<<<<")
@@ -48,6 +49,7 @@ except Exception as e:
 
 stage_name = "Model Trainer stage"
 try:
+    logger.info("****************************************")
     logger.info(f">>>>>> stage {stage_name} started <<<<<<")
     model_trainer = ModelTrainerPipeline()
     model_trainer.main()
@@ -58,6 +60,7 @@ except Exception as e:
 
 stage_name = "Model Evaluation stage"
 try:
+    logger.info("****************************************")
     logger.info(f">>>>>> stage {stage_name} started <<<<<<")
     model_evaluation = ModelEvaluationPipeline()
     model_evaluation.main()
