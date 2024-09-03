@@ -31,11 +31,35 @@ You can install the required packages using pip:
 pip install -r requirements.txt
 ```
 
-### Training the Model
+### Running the Pipeline
 
-To fine-tune the model with the SAMSum dataset, run:
+To execute the full pipeline, from data ingestion to model evaluation, you can sequentially run each stage:
 
-```main.py```
+1. **Data Ingestion**:
+   ```bash
+   python src/textSummarizer/pipeline/stage_01_data_ingestion.py --config config/config.yaml
+   ```
+
+2. **Data Validation**:
+   ```bash
+   python src/textSummarizer/pipeline/stage_02_data_validation.py --config config/config.yaml
+   ```
+
+3. **Data Transformation**:
+   ```bash
+   python src/textSummarizer/pipeline/stage_03_data_transformation.py --config config/config.yaml
+   ```
+
+4. **Model Training**:
+   ```bash
+   python src/textSummarizer/pipeline/stage_04_model_trainer.py --config config/config.yaml --params params.yaml
+   ```
+
+5. **Model Evaluation**:
+   ```bash
+   python src/textSummarizer/pipeline/stage_05_model_evaluation.py --config config/config.yaml --params params.yaml
+   ```
+You can also run the entire pipeline by executing `main.py`. For testing be sure to use a subset of the dataset, as a LLM it requires computing time and VRAM.
 
 This will start the entire process using the configuration and parameters specified in the `config.yaml` and `parameters.yaml` files.
 
@@ -69,4 +93,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 - The fine-tuning is based on the [Transformers](https://github.com/huggingface/transformers) library by Hugging Face.
 - The SAMSum dataset is provided by the [SAMSum](https://arxiv.org/abs/1911.12237) authors.
-
